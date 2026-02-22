@@ -1,5 +1,8 @@
 package classes;
 
+import static classes.Movimento.SACAR;
+import static classes.Movimento.DEPOSITAR;
+
 public class Conta {
     private int numero;
     private Cliente correntista;
@@ -67,5 +70,35 @@ public class Conta {
         }
         saldo = saldo - valorTotal;
         return true;
+    }
+
+    // movimentação
+
+    public boolean movimentar(float valor, int operacao) throws Restricao {
+        if (operacao == SACAR) {
+            boolean resultadoSaque = sacar(valor);
+            return resultadoSaque;
+        }
+        if (operacao == DEPOSITAR) {
+            depositar(valor);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean movimentar(float valor, int operacao, Especial contaEspecial) throws Restricao {
+        if (operacao == SACAR) {
+            boolean resultadoSaque = sacar(valor, contaEspecial);
+            return resultadoSaque;
+        }
+        if (operacao == DEPOSITAR) {
+            depositar(valor, contaEspecial);
+            return true;
+        }
+        return false;
+    }
+
+    public float getSaldo() {
+        return saldo;
     }
 }

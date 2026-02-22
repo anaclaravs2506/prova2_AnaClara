@@ -18,4 +18,15 @@ public class Movimento {
         this.valor = valor;
         this.operacao = operacao;
     }
+    public boolean movimentar()throws Restricao {
+        saldoAnterior = conta.getSaldo();
+        boolean resultadoMovimentacao = conta.movimentar(valor, operacao);
+        return resultadoMovimentacao;
+    }
+
+    public boolean movimentar(Especial contaEspecial) throws Restricao {
+        saldoAnterior = conta.getSaldo();
+        boolean resultadoMovimentacao = conta.movimentar(valor, operacao, contaEspecial);
+        return resultadoMovimentacao;
+    }
 }
