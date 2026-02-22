@@ -42,4 +42,8 @@ public class Especial {
         return 0.001f;
 
     }
+
+    public float getLimite() {
+        return limite;
+    }
 }

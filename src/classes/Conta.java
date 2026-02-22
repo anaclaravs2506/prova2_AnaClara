@@ -39,4 +39,33 @@ public class Conta {
         saldo = saldo + valor;
     }
 
+    // Saque
+
+    public boolean sacar(float valor) throws Restricao {
+        if (valor <= 0) return false;
+
+        float taxa = valor * 0.005f;
+        float valorTotal = valor + taxa;
+        if (saldo < valorTotal) {
+            throw new Restricao (valor, saldo);
+        }
+
+        saldo = saldo - valorTotal;
+        return true;
+    }
+
+    public boolean sacar(float valor, Especial contaEspecial) throws Restricao {
+        if (valor <= 0) return false;
+
+        float percentual = contaEspecial.defineTaxacao(saldo);
+        float taxa = valor * percentual;
+        float valorTotal = valor + taxa;
+
+        float totalDisponivel = saldo + contaEspecial.getLimite();
+        if (totalDisponivel < valorTotal) {
+            throw new Restricao(valor, saldo);
+        }
+        saldo = saldo - valorTotal;
+        return true;
+    }
 }
