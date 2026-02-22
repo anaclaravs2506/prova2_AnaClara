@@ -27,9 +27,9 @@ public class Conta {
 
         // Estou considerando que "usar o limite" significa que o saldo é menor do que 0.
 
-        boolean usouLimite = saldo < 0;
+        boolean naoUsouLimite = saldo >= 0;
 
-        if (!usouLimite){
+        if (naoUsouLimite) {
             float taxa = valor * 0.0005f;
             float valorFinalDeposito = valor - taxa;
             saldo = saldo + valorFinalDeposito;
