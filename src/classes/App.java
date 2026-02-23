@@ -34,7 +34,7 @@ public class App {
             float limite = 200.0f;
             int tempo = 18;
             especial = new Especial(limite, tempo);
-            
+
             // transações para conta especial
             transacao.realizarTransacao("15/02/2026", conta, especial, "Depósito em dinheiro.", 100.0f, Conta.DEPOSITAR);
             transacao.realizarTransacao("16/02/2026", conta, especial, "Pagamento conta luz.", 50.0f, Conta.SACAR);
