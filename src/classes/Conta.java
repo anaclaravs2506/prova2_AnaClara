@@ -1,12 +1,14 @@
 package classes;
 
-import static classes.Movimento.SACAR;
-import static classes.Movimento.DEPOSITAR;
-
 public class Conta {
     private int numero;
     private Cliente correntista;
     private float saldo;
+
+    // Aliases para bater com o exemplo do enunciado (Conta.DEPOSITAR etc.)
+    public static final int SACAR = Movimento.SACAR;
+    public static final int DEPOSITAR = Movimento.DEPOSITAR;
+
 
     public Conta(){
 
@@ -100,5 +102,12 @@ public class Conta {
 
     public float getSaldo() {
         return saldo;
+    }
+    public int getNumero() {
+        return numero;
+    }
+
+    public Cliente getCorrentista() {
+        return correntista;
     }
 }

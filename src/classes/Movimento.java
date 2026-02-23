@@ -29,4 +29,21 @@ public class Movimento {
         boolean resultadoMovimentacao = conta.movimentar(valor, operacao, contaEspecial);
         return resultadoMovimentacao;
     }
+    //Getters para o relatório.
+
+    public String getData() {
+        return data;
+    }
+
+    public String getHistorico() {
+        return historico;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public int getOperacao() {
+        return operacao;
+    }
 }
